@@ -41,6 +41,8 @@ jobs:
           path: "app/build/distributions/"
       - name: "Untar files"
         run: mkdir -p app/build/install && tar -xvf app/build/distributions/snowflake-mcp.tar -C $_
+      - name: "Set up QEMU"
+        uses: docker/setup-qemu-action@v3
       - name: "Set up Docker Buildx"
         uses: docker/setup-buildx-action@v3
       - name: "Login to GHCR"
@@ -53,6 +55,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/heapy/snowflake-mcp:main

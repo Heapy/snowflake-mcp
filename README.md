@@ -19,6 +19,7 @@ Requires Docker
 Start the server:
 
 ```bash
+docker run \
     --name snowflake-mcp \
     -p 33300:8080 \
     -v ~/.snowflake-mcp:/data \
