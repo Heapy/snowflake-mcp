@@ -12,20 +12,18 @@ MCP server that gives Claude (and other MCP clients) access to your Snowflake da
 
 ## Setup
 
-Requires Java 25+.
-
-```bash
-./install.sh
-```
-
-This builds the project, installs to `~/.snowflake-mcp/`, and creates the `sfmcp` command.
+Requires Docker
 
 ## Usage
 
 Start the server:
 
 ```bash
-sfmcp
+    --name snowflake-mcp \
+    -p 33300:8080 \
+    -v ~/.snowflake-mcp:/data \
+    --restart always \
+    ghcr.io/heapy/snowflake-mcp:main
 ```
 
 Add to Claude Code:
@@ -34,7 +32,7 @@ Add to Claude Code:
 claude mcp add --transport sse snowflake-mcp http://localhost:33300
 ```
 
-Then open `http://127.0.0.1:33300/connections` to add your Snowflake connection.
+Then open `http://localhost:33300/connections` to add your Snowflake connection.
 
 ## Development
 

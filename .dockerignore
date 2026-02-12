@@ -1,0 +1,9 @@
+/.git
+/.idea
+/.gradle
+/.github
+/.kotlin
+/app/build
+/build
+/gradle
+!/app/build/install
