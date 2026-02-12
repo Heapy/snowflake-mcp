@@ -55,9 +55,9 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:main
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/heapy/snowflake-mcp:main
+            ghcr.io/heapy/snowflake-mcp:${{ github.sha }}
           labels: |
             org.opencontainers.image.title=snowflake-mcp
             org.opencontainers.image.description=MCP server for Snowflake
-            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.source=${{ github.server_url }}/heapy/snowflake-mcp
