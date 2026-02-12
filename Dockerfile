@@ -1,6 +1,6 @@
-FROM bellsoft/liberica-openjre-alpine:25
+FROM bellsoft/liberica-openjre-debian:25
 
-RUN addgroup -S app && adduser -S app -G app
+RUN addgroup --system app && adduser --system --ingroup app app
 
 COPY /app/build/install/snowflake-mcp /app
 
